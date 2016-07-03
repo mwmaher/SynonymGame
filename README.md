@@ -5,7 +5,10 @@ Executing the code:
 python "SynonymGame.py"
 
 Object of the Game:
-The objective of the game is to correctly identify as many synonyms as possible in a given round of play. Each correct answer during the round earns points. A total score is given at the end of the round.
+The objective of the game is to correctly identify as many synonyms as possible in a given round of play to maximize your score. Each correct answer during the round earns points. A total score is given at the end of the round.
+
+Scoring:
+A correct answer earns 10 points + 1 point for each letter of the word and your answer.  This means that longer words earn more points.
 
 Target audience:
 This is a great little game for people that enjoy word games.  Play it to help improve your vocabulary or keep your mind sharp.  It is also a fun way to help a college-bound high-school student prepare for the SAT or ACT.  English learners will benefit from playing the game by improving their command of the language.
