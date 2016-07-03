@@ -1,22 +1,33 @@
 #SynonymGame.py
 #By Michael W. Maher
 #
-#The Synonym Game presents random common words and asks the player to guess the
+#The Synonym Game presents random words and asks the player to guess the
 #word's synonym.  Points are given for each correct answer.
+#Scoring for each correct answer = 10 points + 1 point for each letter of the word and synonym
+#Points are accumlated
 #
-#The program references a file called, "list of common English words.txt" as a
-#source of random words.  Synonyms are retrieved via API.
+#As a source of random words the program uses either a file called,
+#   "list of common English words.txt" - DIFFICULT
+#   OR
+#   "list of top 1000 common English words.txt"
+#The top 1000 common English words have been selected based on their use
+#in the SAT and ACT tests.
+#Synonyms are retrieved via the bighugelabs Thesaurus API.
 #Thesaurus service provided by words.bighugelabs.com
 #The dictionary API uses JSON.
 #
-
 import json
 import urllib
 import random
 bighugelabskey = 'bighugelabskey.txt'
 common_words = 'list of common English words.TXT'
+top_1000_common_words = 'list of top 1000 common English words.TXT'
 serviceurl = 'http://words.bighugelabs.com/api/2/'
 synonym_list = []
+#Check to see which list of words to play with
+difficulty = raw_input('Do you prefer to play with the (1)Top 1000 words OR (2) Full dictionary')
+if difficulty != '2':
+    common_words = top_1000_common_words
 #Load the common words file into a list
 try:
    fh = open(common_words,'r')
@@ -31,11 +42,15 @@ for word in fh:
     word = word.lstrip('-')
     word_list.append(word)
 print 'You are playing with a dictionary having', word_count, 'common English words. Good luck!'
+print ''
+print ''
 #Load the dictionary key
 try:
     fh = open(bighugelabskey, 'r')
 except:
-   print "File name not found:", bighugelabskey
+   print 'File name not found:', bighugelabskey
+   print 'Please obtain your own key from: http://words.bighugelabs.com/getkey.php'
+   print 'Store the key in a file called,', bighugelabskey, 'in the same directory as this Python program.'
    exit()
 for key in fh:
     key = key.rstrip()
@@ -74,11 +89,9 @@ while plays < round:                                    #Play a round
         if found == True:
             score = score + 10 + len(word) + len(answer)
             print 'Good job! Your score:', score
-            print ''
             found = False
         else:
-            print 'Sorry,', answer, 'is not a synonym of', word
-            print ''
+            print 'Sorry,', answer, 'is not a synonym of', word, ' Zero points earned.'
             synonym_output = ''.strip()
             for synonym in synonym_list:
                 synonym_output = synonym + ', ' + synonym_output
