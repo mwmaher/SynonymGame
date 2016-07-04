@@ -14,8 +14,9 @@ Target audience:
 This is a great little game for people that enjoy word games.  Play it to help improve your vocabulary or keep your mind sharp.  It is also a fun way to help a college-bound high-school student prepare for the SAT or ACT.  English learners will benefit from playing the game by improving their command of the language.
 
 Python coding notes:
-- Incorprates a web-based theasurus via an API
-- Utilizes JSON
+- Utilizes a RESTful web-based thesurus via an API
+- Utilizes JSON to retrieve synonyms from the thesurus
+- Code takes into account that not all words will be in the thesaurus and not all words will have synonyms.  Only words in the thesaurus and having synonyms are presented to players.
 - You will need your own key from http://words.bighugelabs.com/getkey.php'
 - Save the key text as the only contents in a file called, "bighugelabskey.txt"
 
