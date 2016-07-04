@@ -17,8 +17,8 @@ Python coding notes:
 - Incorprates a web-based theasurus via an API
 - Utilizes JSON
 - You will need your own key from http://words.bighugelabs.com/getkey.php'
-- Save the text as the only contents in a text file called, "bighugelabskey.txt"
+- Save the key text as the only contents in a file called, "bighugelabskey.txt"
 
 Feedback:
-Your comments are welcome.  I would love to hear from you if you give this game a try.
+Your comments and feedback are welcome.  I would love to hear from you if you give this game a try.
 
